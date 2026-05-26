@@ -1,0 +1,96 @@
+{
+  "name": "@alyldas/uniauth-nuxt",
+  "version": "0.1.0",
+  "description": "Nuxt integration helpers for UniAuth-backed applications.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "PolyForm-Strict-1.0.0",
+  "author": {
+    "name": "alyldas",
+    "email": "alyldas@ya.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyldas/uniauth-nuxt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alyldas/uniauth-nuxt/issues"
+  },
+  "homepage": "https://github.com/alyldas/uniauth-nuxt#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "sideEffects": false,
+  "types": "./dist/types.d.mts",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.mjs",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.mts",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    },
+    "./server": {
+      "types": "./dist/runtime/server/utils/index.d.ts",
+      "import": "./dist/runtime/server/utils/index.js"
+    },
+    "./types": {
+      "types": "./dist/runtime/types.d.ts",
+      "import": "./dist/runtime/types.js"
+    }
+  },
+  "scripts": {
+    "build": "nuxt-module-build build",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build && npm run lint:package && npm run test:types-package && npm run pack:dry",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:package": "npm_config_cache=./.npm-cache publint",
+    "pack:dry": "npm_config_cache=./.npm-cache npm pack --dry-run",
+    "prepack": "npm run build",
+    "prepare": "node -e \"process.exit(0)\"",
+    "test": "vitest run",
+    "test:types-package": "npm_config_cache=./.npm-cache node scripts/check-types-package.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "auth",
+    "nuxt",
+    "module",
+    "ssr",
+    "uniauth"
+  ],
+  "peerDependencies": {
+    "nuxt": "^3.0.0 || ^4.0.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@arethetypeswrong/core": "^0.18.2",
+    "@eslint/js": "^9.39.1",
+    "@nuxt/module-builder": "^1.0.0",
+    "@nuxt/schema": "^4.0.0",
+    "@types/node": "^22.19.19",
+    "@vitest/coverage-v8": "^4.1.7",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.5.0",
+    "h3": "^1.15.0",
+    "nuxt": "^4.0.0",
+    "ofetch": "^1.4.0",
+    "prettier": "^3.0.0",
+    "publint": "^0.3.21",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.59.4",
+    "vitest": "^4.0.0"
+  }
+}
