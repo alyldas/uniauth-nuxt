@@ -10,6 +10,10 @@ import type {
 import { useUniAuthProxyPrefix } from "../utils/public-config";
 import { useSession } from "./useSession";
 
+const proxyRequestHeaders = {
+  "x-uniauth-proxy-request": "1",
+};
+
 // noinspection JSUnusedGlobalSymbols -- Nuxt exposes composables from this directory as auto-imports.
 export function useAuth<
   User extends UniAuthJsonUser = UniAuthUser,
@@ -26,6 +30,7 @@ export function useAuth<
       {
         method: "POST",
         body,
+        headers: proxyRequestHeaders,
       },
     );
 
@@ -36,6 +41,7 @@ export function useAuth<
   async function logout(): Promise<void> {
     await $fetch(`${proxyPrefix}/logout`, {
       method: "POST",
+      headers: proxyRequestHeaders,
     });
     authSession.clear();
   }
@@ -48,6 +54,7 @@ export function useAuth<
       `${proxyPrefix}/refresh`,
       {
         method: "POST",
+        headers: proxyRequestHeaders,
       },
     );
     await authSession.refresh();

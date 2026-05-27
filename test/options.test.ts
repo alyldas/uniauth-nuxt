@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { filterCookieHeader } from "../src/runtime/server/utils";
+import {
+  UNIAUTH_PROXY_REQUEST_HEADER,
+  UNIAUTH_PROXY_REQUEST_HEADER_VALUE,
+  assertUniAuthProxyRequest,
+  filterCookieHeader,
+} from "../src/runtime/server/utils";
 import {
   joinApiPath,
   resolveUniAuthOptions,
@@ -18,6 +23,11 @@ describe("resolveUniAuthOptions", () => {
     expect(options.redirects).toEqual({
       signIn: "/sign-in",
     });
+    expect(options.forwardHeaders).toEqual([
+      "cookie",
+      "authorization",
+      "user-agent",
+    ]);
   });
 
   it("normalizes prefixes and endpoints", () => {
@@ -48,6 +58,39 @@ describe("resolveUniAuthOptions", () => {
     );
     expect(joinApiPath("", "/auth/account/session")).toBe(
       "/auth/account/session",
+    );
+  });
+});
+
+describe("assertUniAuthProxyRequest", () => {
+  it("allows proxy requests with the internal request header", () => {
+    expect(() =>
+      assertUniAuthProxyRequest({
+        node: {
+          req: {
+            headers: {
+              [UNIAUTH_PROXY_REQUEST_HEADER]:
+                UNIAUTH_PROXY_REQUEST_HEADER_VALUE,
+            },
+          },
+        },
+      } as never),
+    ).not.toThrow();
+  });
+
+  it("rejects proxy requests without the internal request header", () => {
+    expect(() =>
+      assertUniAuthProxyRequest({
+        node: {
+          req: {
+            headers: {},
+          },
+        },
+      } as never),
+    ).toThrowError(
+      expect.objectContaining({
+        statusCode: 403,
+      }),
     );
   });
 });

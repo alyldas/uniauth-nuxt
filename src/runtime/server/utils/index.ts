@@ -4,4 +4,10 @@ export {
   requireUniAuthSession,
   type UniAuthBackendClient,
 } from "./client";
-export { filterCookieHeader, readForwardedHeaders } from "./headers";
+export {
+  UNIAUTH_PROXY_REQUEST_HEADER,
+  UNIAUTH_PROXY_REQUEST_HEADER_VALUE,
+  assertUniAuthProxyRequest,
+  filterCookieHeader,
+  readForwardedHeaders,
+} from "./headers";

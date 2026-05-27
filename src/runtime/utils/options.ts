@@ -16,7 +16,7 @@ export const defaultUniAuthOptions = {
   redirects: {
     signIn: "/sign-in",
   },
-  forwardHeaders: ["cookie", "authorization", "user-agent", "x-forwarded-for"],
+  forwardHeaders: ["cookie", "authorization", "user-agent"],
   sessionCookieNames: ["session"],
 } as const satisfies ResolvedUniAuthModuleOptions;
 
