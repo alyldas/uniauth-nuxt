@@ -1,5 +1,7 @@
 # @alyldas/uniauth-nuxt
 
+[![GitHub Packages](https://img.shields.io/static/v1?label=GitHub%20Packages&message=%40alyldas%2Funiauth-nuxt&color=24292f&logo=github)](https://github.com/users/alyldas/packages/npm/package/uniauth-nuxt)
+
 Nuxt module for applications that use a UniAuth-powered backend API.
 
 ## Runtime Boundary
@@ -8,6 +10,14 @@ This package does not create auth records, verify passwords, issue sessions, or 
 forwards Nuxt SSR and browser calls to the backend API and exposes Nuxt-friendly helpers.
 
 ## Install
+
+Configure the GitHub Packages registry for the package scope before installing:
+
+```ini
+@alyldas:registry=https://npm.pkg.github.com
+```
+
+GitHub Packages can require authentication for package reads. Use a token with `read:packages` in local npm config or CI secrets; do not commit tokens.
 
 ```sh
 npm install @alyldas/uniauth-nuxt nuxt
