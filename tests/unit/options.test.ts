@@ -4,11 +4,11 @@ import {
   UNIAUTH_PROXY_REQUEST_HEADER_VALUE,
   assertUniAuthProxyRequest,
   filterCookieHeader,
-} from "../src/runtime/server/utils";
+} from "../../src/runtime/server/utils";
 import {
   joinApiPath,
   resolveUniAuthOptions,
-} from "../src/runtime/utils/options";
+} from "../../src/runtime/utils/options";
 
 describe("resolveUniAuthOptions", () => {
   it("defaults to the UniAuth Express router contract mounted at /auth", () => {

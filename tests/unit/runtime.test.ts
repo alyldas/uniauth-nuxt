@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import authMiddleware from "../src/runtime/middleware/auth";
-import { requireAuth } from "../src/runtime/composables/requireAuth";
-import { useAuth } from "../src/runtime/composables/useAuth";
-import { useSession } from "../src/runtime/composables/useSession";
+import authMiddleware from "../../src/runtime/middleware/auth";
+import { requireAuth } from "../../src/runtime/composables/requireAuth";
+import { useAuth } from "../../src/runtime/composables/useAuth";
+import { useSession } from "../../src/runtime/composables/useSession";
 import {
   UNIAUTH_PROXY_REQUEST_HEADER,
   UNIAUTH_PROXY_REQUEST_HEADER_VALUE,
-} from "../src/runtime/server/utils";
+} from "../../src/runtime/server/utils";
 import {
   getLastNavigation,
   resetNuxtAppFixture,

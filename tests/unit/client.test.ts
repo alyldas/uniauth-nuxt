@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { $fetch } from "ofetch";
-import { createUniAuthBackendClient } from "../src/runtime/server/utils";
+import { createUniAuthBackendClient } from "../../src/runtime/server/utils";
 
 const appendResponseHeaderMock = vi.hoisted(() => vi.fn());
 const rawFetchMock = vi.hoisted(() => vi.fn());

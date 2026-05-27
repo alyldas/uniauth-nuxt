@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import uniauthModule from "../src/module";
+import uniauthModule from "../../src/module";
 
 const kitCalls = vi.hoisted(() => ({
   importsDirs: [] as string[],

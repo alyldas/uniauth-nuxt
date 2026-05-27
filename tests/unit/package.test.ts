@@ -14,7 +14,7 @@ interface PackageJson {
   readonly exports: Record<string, PackageExport>;
 }
 
-const packageRoot = fileURLToPath(new URL("..", import.meta.url));
+const packageRoot = fileURLToPath(new URL("../..", import.meta.url));
 
 describe("package surface", () => {
   it("points package exports at existing dist files", async () => {
@@ -60,15 +60,15 @@ describe("package surface", () => {
   });
 
   it("loads the built public entrypoints", async () => {
-    const moduleEntry = (await import("../dist/module.mjs")) as {
+    const moduleEntry = (await import("../../dist/module.mjs")) as {
       default: unknown;
     };
     const serverEntry =
-      (await import("../dist/runtime/server/utils/index.js")) as Record<
+      (await import("../../dist/runtime/server/utils/index.js")) as Record<
         string,
         unknown
       >;
-    const typesEntry = (await import("../dist/runtime/types.js")) as Record<
+    const typesEntry = (await import("../../dist/runtime/types.js")) as Record<
       string,
       unknown
     >;

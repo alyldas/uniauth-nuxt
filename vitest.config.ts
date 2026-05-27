@@ -6,10 +6,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "#app": fileURLToPath(
-        new URL("./test/fixtures/nuxt-app.ts", import.meta.url),
+        new URL("./tests/unit/fixtures/nuxt-app.ts", import.meta.url),
       ),
       "#build/uniauth-options": fileURLToPath(
-        new URL("./test/fixtures/uniauth-options.ts", import.meta.url),
+        new URL("./tests/unit/fixtures/uniauth-options.ts", import.meta.url),
       ),
     },
   },
