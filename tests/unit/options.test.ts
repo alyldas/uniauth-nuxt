@@ -60,6 +60,14 @@ describe("resolveUniAuthOptions", () => {
       "/auth/account/session",
     );
   });
+
+  it("normalizes slash-heavy paths without regex backtracking", () => {
+    const slashes = "/".repeat(10_000);
+
+    expect(joinApiPath(`${slashes}v1${slashes}`, `${slashes}session`)).toBe(
+      "/v1/session",
+    );
+  });
 });
 
 describe("assertUniAuthProxyRequest", () => {
