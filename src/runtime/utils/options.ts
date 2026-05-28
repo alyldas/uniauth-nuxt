@@ -74,9 +74,30 @@ function normalizePath(path: string): string {
     return "";
   }
 
-  return `/${trimmed.replace(/^\/+|\/+$/g, "")}`;
+  return `/${trimSlashes(trimmed)}`;
 }
 
 function stripTrailingSlash(value: string): string {
-  return value.replace(/\/+$/g, "");
+  let end = value.length;
+
+  while (end > 0 && value[end - 1] === "/") {
+    end -= 1;
+  }
+
+  return value.slice(0, end);
+}
+
+function trimSlashes(value: string): string {
+  let start = 0;
+  let end = value.length;
+
+  while (start < end && value[start] === "/") {
+    start += 1;
+  }
+
+  while (end > start && value[end - 1] === "/") {
+    end -= 1;
+  }
+
+  return value.slice(start, end);
 }
