@@ -83,7 +83,7 @@
     "@vitest/coverage-v8": "^4.1.7",
     "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
-    "globals": "^16.5.0",
+    "globals": "^17.6.0",
     "h3": "^1.15.0",
     "nuxt": "^4.0.0",
     "ofetch": "^1.4.0",
