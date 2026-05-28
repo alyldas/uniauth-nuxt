@@ -81,7 +81,7 @@
     "@nuxt/schema": "^4.0.0",
     "@types/node": "^22.19.19",
     "@vitest/coverage-v8": "^4.1.7",
-    "eslint": "^9.39.4",
+    "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.5.0",
     "h3": "^1.15.0",
