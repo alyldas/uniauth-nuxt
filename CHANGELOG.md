@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/alyldas/uniauth-nuxt/compare/uniauth-nuxt-v0.1.0...uniauth-nuxt-v0.1.1) (2026-05-28)
+
+
+### Bug Fixes
+
+* **security:** hardened path normalization ([#10](https://github.com/alyldas/uniauth-nuxt/issues/10)) ([61d4b98](https://github.com/alyldas/uniauth-nuxt/commit/61d4b981c9a2752a22422ca23f5e72adf4dbc9d0))
+
 ## 0.1.0 (2026-05-27)
 
 
