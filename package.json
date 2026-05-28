@@ -76,7 +76,7 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
     "@arethetypeswrong/core": "^0.18.2",
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^10.0.1",
     "@nuxt/module-builder": "^1.0.0",
     "@nuxt/schema": "^4.0.0",
     "@types/node": "^22.19.19",
