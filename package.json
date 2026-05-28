@@ -1,6 +1,6 @@
 {
   "name": "@alyldas/uniauth-nuxt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Nuxt integration helpers for UniAuth-backed applications.",
   "type": "module",
   "engines": {
